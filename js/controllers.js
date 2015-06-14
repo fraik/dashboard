@@ -24,5 +24,11 @@ app.controller('tdeeCalculatorCtrl', function($scope){
 
 	$scope.calculateBMR = function(weight, bodyFat){
 		return 370 + (21.6 * (weight * (100-bodyFat)/100));
-	}
+	};
+
+	$scope.currentActivityLevel = "1.2";
+
+	$scope.calculateBMI = function(weight, height){
+		return weight/(height*height/100);
+	};
 });
