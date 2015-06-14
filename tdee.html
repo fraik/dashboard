@@ -28,52 +28,50 @@
   </head>
   <body ng-controller="tdeeCalculatorCtrl">
 
+
+  <!-- main container -->
   <div class="container">
 
 
-  <div class="header clearfix">
-    <nav>
-      <ul class="nav nav-pills pull-right">
-        <li role="presentation"><a href="smoking.html">Smoking</a></li>
-        <li role="presentation" class="active"><a href="tdee.html">TDEE</a></li>
-      </ul>
-    </nav>
-    <h3 class="text-muted">Dashboard</h3>
-  </div>
+    <!-- navigation -->
+    <div class="header clearfix">
+      <nav>
+        <ul class="nav nav-pills pull-right">
+          <li role="presentation"><a href="smoking.html">Smoking</a></li>
+          <li role="presentation" class="active"><a href="tdee.html">TDEE</a></li>
+        </ul>
+      </nav>
+      <h3 class="text-muted">Dashboard</h3>
+    </div>
+
+    <!-- header -->
     <div class="page-header">
       <h1>Calculate your Total Daily Energy Expenditure (TDEE)</h1>
     </div>
 
-    <!--
-    * length
-    * weight
-    * fat %
-    * age
 
-    Since the Katch-McArdle formula accounts for LBM, this single formula applies
-    equally to both men and women and it is the most accurate method of determining your
-    daily calorie needs.
 
-    BMR (men and women) = 370 + (21.6 X lean mass in kg)
-    -->
-
+    <!-- row -->
     <div class="row">
 
 
-      <!-- left thingy -->
+      <!-- left column -->
       <div class="col-sm-6">
         <form>
 
+          <!-- Mass -->
           <div class="form-group">
             <label for="inputWeight">Weight (kg)</label>
             <input ng-model="inputWeight" type="text" class="form-control" id="inputWeight" placeholder="Enter weight (kg)">
           </div>
 
+          <!-- Fat -->
           <div class="form-group">
             <label for="inputFatPercentage">Body fat percentage (%)</label>
             <input ng-model="inputFatPercentage" type="text" class="form-control" id="inputFatPercentage" placeholder="Body fat percentage (%)">
           </div>
 
+          <!-- Activity Level -->
           <div class="form-group">
             <label for="inputActivityLevel">Activity level</label>
             <select ng-model="currentActivityLevel" class="form-control">
@@ -81,35 +79,36 @@
             </select>
           </div>
 
+          <!-- Height -->
           <div class="form-group">
             <label for="inputHeight">Height (cm)</label>
             <input ng-model="inputHeight" type="number" class="form-control" id="inputHeight" placeholder="Enter height (cm)"></input>
           </div>
 
+          <!-- Button -->
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
 
-      <!-- right thingy -->
-
+      <!-- middle column -->
       <div class="col-sm-4">
+        <!-- BMR -->
         <div class="well">
-        <strong>
-        BMR: {{calculateBMR(inputWeight, inputFatPercentage) | number : 1}}
-        </strong>
+          <strong>BMR: {{calculateBMR(inputWeight, inputFatPercentage) | number : 1}}</strong>
         </div>
+
+        <!-- TDEE -->
         <div class="well">
-        <strong>
-        TDEE: {{calculateTDEE(inputWeight, inputFatPercentage, currentActivityLevel) | number : 1}}    
-        </strong>
+          <strong>TDEE: {{calculateTDEE(inputWeight, inputFatPercentage, currentActivityLevel) | number : 1}}</strong>
         </div>
+
+        <!-- BMI -->
         <div class="well">
-        <strong>
-        BMI: {{calculateBMI(inputWeight, inputHeight) | number : 2}}
-        </strong>
+          <strong>BMI: {{calculateBMI(inputWeight, inputHeight) | number : 2}}</strong>
         </div>
       </div>
 
+      <!-- right margin -->
       <div class="col-sm-4"></div>
     </div>
 

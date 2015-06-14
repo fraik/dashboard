@@ -24,14 +24,28 @@ app.controller('tdeeCalculatorCtrl', function($scope){
 
 	$scope.currentActivityLevel = "1.2";
 
+    /*
+      Since the Katch-McArdle formula accounts for LBM, this single formula applies
+      equally to both men and women and it is the most accurate method of determining your
+      daily calorie needs.
+
+	  LBM = Mass * (1-(Fat%/100))
+      BMR = 370 + (21.6 * LBM)
+    */
 	$scope.calculateBMR = function(weight, bodyFat){
 		return 370 + (21.6 * (weight * (100-bodyFat)/100));
 	};
 
+	/*
+	TDEE = BMR * ActivityLevel
+	*/
 	$scope.calculateTDEE = function(weight, bodyFat, activityLevel){
 		return $scope.calculateBMR(weight, bodyFat) * activityLevel;
 	};
 
+	/*
+	  BMI = Mass / Height^2
+	*/
 	$scope.calculateBMI = function(weight, height){
 		return weight/(height*height/100);
 	};
