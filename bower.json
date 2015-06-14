@@ -1,0 +1,13 @@
+{
+  "name": "Dashboard",
+  "version": "0.0.0",
+  "authors": [
+    "fraik <freek@raaftech.com>"
+  ],
+  "license": "GPLv3",
+  "ignore": [],
+  "dependencies": {
+    "angular": "latest",
+    "bootstrap": "latest"
+  }
+}
