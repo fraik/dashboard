@@ -28,8 +28,18 @@
   </head>
   <body ng-controller="tdeeCalculatorCtrl">
 
-  <div class="container-fluid">
+  <div class="container">
 
+
+  <div class="header clearfix">
+    <nav>
+      <ul class="nav nav-pills pull-right">
+        <li role="presentation"><a href="smoking.html">Smoking</a></li>
+        <li role="presentation" class="active"><a href="tdee.html">TDEE</a></li>
+      </ul>
+    </nav>
+    <h3 class="text-muted">Dashboard</h3>
+  </div>
     <div class="page-header">
       <h1>Calculate your Total Daily Energy Expenditure (TDEE)</h1>
     </div>
@@ -49,7 +59,6 @@
 
     <div class="row">
 
-      <div class="col-sm-2"></div>
 
       <!-- left thingy -->
       <div class="col-sm-6">
@@ -57,12 +66,12 @@
 
           <div class="form-group">
             <label for="inputWeight">Weight (kg)</label>
-            <input ng-model="inputWeight" type="text" class="form-control" id="inputWeight" placeholder="Enter weight (kg)" smart-float>
+            <input ng-model="inputWeight" type="text" class="form-control" id="inputWeight" placeholder="Enter weight (kg)">
           </div>
 
           <div class="form-group">
             <label for="inputFatPercentage">Body fat percentage (%)</label>
-            <input ng-model="inputFatPercentage" type="text" class="form-control" id="inputFatPercentage" placeholder="Body fat percentage (%)" smart-float>
+            <input ng-model="inputFatPercentage" type="text" class="form-control" id="inputFatPercentage" placeholder="Body fat percentage (%)">
           </div>
 
           <div class="form-group">
@@ -82,7 +91,8 @@
       </div>
 
       <!-- right thingy -->
-      <div class="col-sm-2">
+
+      <div class="col-sm-4">
         <div class="well">
         <strong>
         BMR: {{calculateBMR(inputWeight, inputFatPercentage) | number : 1}}
@@ -90,7 +100,7 @@
         </div>
         <div class="well">
         <strong>
-        TDEE: {{calculateBMR(inputWeight, inputFatPercentage) * currentActivityLevel | number : 1}}    
+        TDEE: {{calculateTDEE(inputWeight, inputFatPercentage, currentActivityLevel) | number : 1}}    
         </strong>
         </div>
         <div class="well">
@@ -100,7 +110,7 @@
         </div>
       </div>
 
-      <div class="col-sm-2"></div>
+      <div class="col-sm-4"></div>
     </div>
 
   </div>

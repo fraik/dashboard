@@ -22,11 +22,15 @@ app.controller('tdeeCalculatorCtrl', function($scope){
 		 				 football camp, contest, etc.'}
 	];
 
+	$scope.currentActivityLevel = "1.2";
+
 	$scope.calculateBMR = function(weight, bodyFat){
 		return 370 + (21.6 * (weight * (100-bodyFat)/100));
 	};
 
-	$scope.currentActivityLevel = "1.2";
+	$scope.calculateTDEE = function(weight, bodyFat, activityLevel){
+		return $scope.calculateBMR(weight, bodyFat) * activityLevel;
+	};
 
 	$scope.calculateBMI = function(weight, height){
 		return weight/(height*height/100);
