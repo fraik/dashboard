@@ -1,5 +1,6 @@
 var app = angular.module('tdeeCalcApp', []);
 
+// TODO make this an actual controller
 app.controller('tdeeCalculatorCtrl', function($scope){
 	$scope.activityLevels = [
 		{'name': 'Sedentary',
