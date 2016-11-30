@@ -3,7 +3,7 @@ var app = angular.module('tdeeCalcApp', []);
 // TODO make this an actual controller
 app.controller('tdeeCalculatorCtrl', function($scope){
 	$scope.activityLevels = [
-		{'name': 'Sedentary',
+		{'name': 'sedentary',
 		 'value': 1.2,
 		 'description': 'little or no exercise, desk job'},
 		{'name': 'lightly active',
